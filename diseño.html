@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño de Software - Mejores Prácticas</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --info: #3498db;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .intro {
+            padding: 20px;
+            background: var(--light);
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-body ul {
+            list-style-type: none;
+        }
+        
+        .card-body li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .card-body li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .principles .card-header { background: var(--info); }
+        .methodologies .card-header { background: var(--warning); }
+        .coding .card-header { background: var(--success); }
+        .testing .card-header { background: var(--accent); }
+        .infrastructure .card-header { background: #9b59b6; }
+        .security .card-header { background: #34495e; }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .badge-primary { background: var(--primary); color: white; }
+        .badge-secondary { background: var(--secondary); color: white; }
+        .badge-accent { background: var(--accent); color: white; }
+        
+        .principle-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .principle-name {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--dark);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Diseño de Software</h1>
+            <p class="subtitle">Principios fundamentales y mejores prácticas de desarrollo</p>
+        </header>
+        
+        <section class="intro">
+            <p>El diseño de software es un concepto fundamental en la ingeniería de software que implica la conceptualización, estructuración, implementación y modificación de sistemas complejos. Es el proceso de visualizar y definir soluciones de software para uno o más conjuntos de problemas.</p>
+        </section>
+        
+        <section class="grid">
+            <div class="card principles">
+                <div class="card-header">Principios de Diseño</div>
+                <div class="card-body">
+                    <div class="principle-item">
+                        <span class="principle-name">Abstracción</span>
+                        <p>Representar características esenciales sin incluir detalles de fondo.</p>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-name">Modularidad</span>
+                        <p>División de la arquitectura en componentes independientes llamados módulos.</p>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-name">Ocultamiento de información</span>
+                        <p>Los módulos deben diseñarse para que la información dentro de uno sea inaccesible para otros módulos que no la necesitan.</p>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-name">Arquitectura de software</span>
+                        <p>Estructura global que proporciona integridad conceptual al sistema.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card methodologies">
+                <div class="card-header">Metodologías de Desarrollo</div>
+                <div class="card-body">
+                    <ul>
+                        <li><span class="badge badge-primary">Scrum</span> Marco de trabajo para mejorar calidad, velocidad y viabilidad financiera</li>
+                        <li><span class="badge badge-secondary">Nexus</span> Escalado de proyectos ágiles a gran escala</li>
+                        <li><span class="badge badge-accent">Kanban</span> Visualiza el trabajo necesario para entregar nuevas características</li>
+                        <li><span class="badge badge-primary">Waterfall</span> Enfoque estructurado y secuencial</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card coding">
+                <div class="card-header">Prácticas de Codificación</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Legibilidad del código:</strong> Asegura que el equipo pueda leer el código de los demás</li>
+                        <li><strong>Refactorización frecuente:</strong> Modificar código para hacerlo más mantenible</li>
+                        <li><strong>Principios KISS:</strong> Keep It Simple, Stupid - Mantener la simplicidad</li>
+                        <li><strong>Principios YAGNI:</strong> You Aren't Gonna Need It - No agregar funcionalidades prematuras</li>
+                        <li><strong>Principios DRY:</strong> Don't Repeat Yourself - Evitar duplicación de lógica</li>
+                        <li><strong>Principios SOLID:</strong> Cinco principios de diseño orientado a objetos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card testing">
+                <div class="card-header">Prácticas de Pruebas</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Pruebas unitarias:</strong> Exponen problemas al principio del desarrollo</li>
+                        <li><strong>BDD (Behavior-Driven Development):</strong> Se centra en el comportamiento y expectativas</li>
+                        <li><strong>Pruebas de aceptación automatizadas:</strong> Especificación formal del comportamiento</li>
+                        <li><strong>Pruebas de rendimiento:</strong> Evalúan carga y tiempo de respuesta</li>
+                        <li><strong>TDD (Test-Driven Development):</strong> Escribir pruebas antes del código</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card infrastructure">
+                <div class="card-header">Infraestructura y Entrega</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>CI/CD:</strong> Integración Continua/Despliegue Continuo</li>
+                        <li><strong>Arquitectura de Microservicios:</strong> Software como conjunto de servicios pequeños</li>
+                        <li><strong>DevOps:</strong> Fusiona desarrollo y operaciones para entregar más rápido</li>
+                        <li><strong>Infraestructura como Código (IaC):</strong> Gestionar infraestructura mediante código</li>
+                        <li><strong>Computación en la Nube:</strong> Familiarizarse con plataformas cloud</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card security">
+                <div class="card-header">Seguridad</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>DevSecOps:</strong> Crear, entregar y monitorear software seguro continuamente</li>
+                        <li><strong>Pruebas de penetración:</strong> Evaluar vulnerabilidades en software y hardware</li>
+                        <li><strong>Seguridad por diseño:</strong> Incorporar seguridad desde las etapas iniciales</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Basado en el documento "El diseño de software.pdf" | Referencias IEEE</p>
+        </footer>
+    </div>
+</body>
+</html>
